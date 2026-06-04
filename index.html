@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieRecipes.net | Premium Lifestyle & Culinary Network</title>
+    <style>
+        /* ==========================================================================
+           MASTER CORE STYLING (THE MAYHEM CLASS ENGINE)
+           ========================================================================== */
+        :root {
+            --primary-color: #111111;
+            --accent-color: #e50914;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --bg-light: #f9f9f9;
+            --border-color: #e5e5e5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--text-dark); background-color: #ffffff; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+
+        /* HEADER & NAVIGATION CONTAINER */
+        header { border-bottom: 1px solid var(--border-color); background-color: #ffffff; position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; padding: 15px 20px; }
+        .logo { font-size: 1.8rem; font-weight: 800; tracking: -1px; text-transform: uppercase; color: var(--primary-color); margin-bottom: 10px; }
+        .logo span { color: var(--accent-color); }
+        
+        /* DESKTOP NAVIGATION */
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav a { font-size: 0.95rem; font-weight: 600; text-transform: uppercase; color: #555555; transition: color 0.2s ease; padding: 5px 0; }
+        nav a:hover, nav a.active { color: var(--accent-color); }
+
+        /* EDITORIAL HERO SECTION */
+        .editorial-hero { 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1600&q=80') no-repeat center center;
+            background-size: cover;
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+        }
+        .editorial-hero h1 { font-size: 3rem; font-weight: 800; text-transform: uppercase; margin-bottom: 15px; letter-spacing: -0.5px; }
+        .editorial-hero p { font-size: 1.3rem; font-weight: 300; max-width: 700px; margin: 0 auto; opacity: 0.9; }
+
+        /* MAIN CONTENT LAYOUT GRID */
+        .site-main-container { max-width: 1200px; margin: 0 auto; padding: 0 20px 60px 20px; }
+        .section-title { font-size: 1.5rem; font-weight: 700; text-transform: uppercase; border-left: 4px solid var(--accent-color); padding-left: 12px; margin-bottom: 25px; letter-spacing: -0.5px; }
+        .editorial-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
+
+        /* POST ARTICLE CARDS */
+        .post-card { background: var(--bg-light); border: 1px solid var(--border-color); border-radius: 4px; overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .post-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card-img { height: 220px; background-size: cover; background-position: center; background-color: #ddd; }
+        .card-content { padding: 20px; }
+        .card-category { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--accent-color); letter-spacing: 1px; margin-bottom: 8px; display: inline-block; }
+        .card-title { font-size: 1.3rem; font-weight: 700; color: var(--primary-color); line-height: 1.3; margin-bottom: 10px; }
+        .card-excerpt { font-size: 0.95rem; color: #666; margin-bottom: 15px; }
+        .card-meta { font-size: 0.8rem; color: #999; text-transform: uppercase; font-weight: 500; }
+
+        /* UNIVERSAL BRANDED FOOTER ENGINE */
+        footer { background: var(--primary-color); color: #999999; padding: 40px 20px; font-size: 0.9rem; border-top: 4px solid var(--accent-color); }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+        .footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; list-style: none; }
+        .footer-links a { color: #cccccc; transition: color 0.2s ease; }
+        .footer-links a:hover { color: var(--text-light); }
+        .copyright { color: #666666; font-size: 0.85rem; margin-top: 10px; }
+
+        /* ==========================================================================
+           UPGRADED RESPONSIVE MOBILE REFINEMENTS
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .nav-container { padding: 10px; }
+            .logo { font-size: 1.5rem; margin-bottom: 12px; }
+            
+            /* Force header menu links to drop cleanly into a standard centralized grid */
+            nav ul {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 8px 12px !important;
+                padding: 5px !important;
+            }
+            nav a { font-size: 0.85rem !important; padding: 4px 8px !important; display: block !important; }
+
+            .editorial-hero { padding: 60px 15px !important; }
+            .editorial-hero h1 { font-size: 2rem !important; }
+            .editorial-hero p { font-size: 1.1rem !important; }
+            
+            .editorial-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+            .footer-links { gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MASTER HEADER -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Movie<span>Recipes</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Recipes</a></li>
+                    <li><a href="#">Grocery</a></li>
+                    <li><a href="#">Eating Out</a></li>
+                    <li><a href="#">Cuisines</a></li>
+                    <li><a href="#">Healthy Living</a></li>
+                    <li><a href="#">Trending</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN DYNAMIC EDITORIAL HERO -->
+    <section class="editorial-hero">
+        <div class="hero-content">
+            <h1>Culinary Entertainment & Lifestyle</h1>
+            <p>Where silver-screen aesthetic meets premium real-world flavor profiles, curated daily.</p>
+        </div>
+    </section>
+
+    <!-- CONTENT ELEMENT REGION -->
+    <main class="site-main-container">
+        <h2 class="section-title">Latest Network Dispatches</h2>
+        <div class="editorial-grid">
+            
+            <!-- TEST CARD 1 (RECIPES) -->
+            <article class="post-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-content">
+                    <span class="card-category">Recipes</span>
+                    <h3 class="card-title">The Ultimate 15-Minute Cast Iron Ribeye</h3>
+                    <p class="card-excerpt">Discover the cinematic secret to locking in heavy marbling utilizing optimized thermal surface tension transfers.</p>
+                    <div class="card-meta">Published June 4, 2026</div>
+                </div>
+            </article>
+
+            <!-- TEST CARD 2 (HEALTHY LIVING) -->
+            <article class="post-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-content">
+                    <span class="card-category">Healthy Living</span>
+                    <h3 class="card-title">Clean Engine Sourcing: High-Silo Micro-Nutrients</h3>
+                    <p class="card-excerpt">Streamlining your internal bio-availability pathways utilizing simple, whole-food metabolic fuel grids.</p>
+                    <div class="card-meta">Published June 4, 2026</div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- MASTER BRANDED FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Ad Choices</a></li>
+            </ul>
+            <div class="copyright">© 2026 MovieRecipes.net</div>
+        </div>
+    </footer>
+
+</body>
+</html>
