@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "blog"
+    label: "Editorial Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", type: "hidden", default: "post"}
+      - {label: "Title", name: "title", type: "string"}
+      - {label: "Category", name: "category", type: "select", options: ["recipes", "grocery", "eating-out", "cuisines", "healthy-living", "trending"]}
+      - {label: "Featured Image", name: "image", type: "image"}
+      - {label: "Publish Date", name: "date", type: "datetime"}
+      - {label: "Teaser Excerpt", name: "excerpt", type: "string"}
+      - {label: "Body Text", name: "body", type: "markdown"}
