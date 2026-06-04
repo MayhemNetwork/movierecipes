@@ -198,24 +198,48 @@
         </div>
     </footer>
 <script>
-        function filterCategory(category, element) {
+       function filterCategory(category, element) {
             // 1. Update the active styling on the navigation links
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
             element.classList.add('active');
 
-            // 2. Automatically update the Hero Header text to match the channel
+            // 2. Select the targets we want to dynamically change
             const heroTitle = document.querySelector('.editorial-hero h1');
             const heroText = document.querySelector('.editorial-hero p');
+            const sectionTitle = document.querySelector('.section-title');
             
+            // 3. Update text based on the specific channel clicked
             if (category === 'all') {
                 heroTitle.innerText = "Culinary Entertainment & Lifestyle";
                 heroText.innerText = "Where silver-screen aesthetic meets premium real-world flavor profiles, curated daily.";
-            } else {
-                heroTitle.innerText = category.replace('-', ' ').toUpperCase();
-                heroText.innerText = `Premium insights, curated guides, and editorial features covering ${category.replace('-', ' ')}.`;
+                sectionTitle.innerText = "Latest Network Dispatches";
+            } else if (category === 'recipes') {
+                heroTitle.innerText = "RECIPES";
+                heroText.innerText = "Premium insights, curated guides, and editorial features covering culinary formulas.";
+                sectionTitle.innerText = "Cinematic Culinary Formulas";
+            } else if (category === 'grocery') {
+                heroTitle.innerText = "GROCERY";
+                heroText.innerText = "Premium insights, curated guides, and editorial features covering supply chains.";
+                sectionTitle.innerText = "Sourced Provisions & Provisions";
+            } else if (category === 'eating-out') {
+                heroTitle.innerText = "EATING OUT";
+                heroText.innerText = "Premium insights, curated guides, and editorial features covering high-table culture.";
+                sectionTitle.innerText = "The Gastronomic Circuit";
+            } else if (category === 'cuisines') {
+                heroTitle.innerText = "CUISINES";
+                heroText.innerText = "Premium insights, curated guides, and editorial features covering regional profiles.";
+                sectionTitle.innerText = "Global Flavor Profiles";
+            } else if (category === 'healthy-living') {
+                heroTitle.innerText = "HEALTHY LIVING";
+                heroText.innerText = "Premium insights, curated guides, and editorial features covering metabolic fuel.";
+                sectionTitle.innerText = "Optimized Wellness Frameworks";
+            } else if (category === 'trending') {
+                heroTitle.innerText = "TRENDING";
+                heroText.innerText = "Premium insights, curated guides, and editorial features covering current movements.";
+                sectionTitle.innerText = "The Culture Radar";
             }
-
-            // 3. Instantaneously filter the content grid cards
+            
+            // 4. Instantaneously filter the content grid cards
             document.querySelectorAll('.post-card').forEach(card => {
                 if (category === 'all' || card.getAttribute('data-category') === category) {
                     card.style.display = 'block';
