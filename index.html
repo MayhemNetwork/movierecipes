@@ -163,6 +163,42 @@
             <div class="copyright">© 2026 MovieRecipes.net</div>
         </div>
     </footer>
+<script>
+        function filterCategory(category, element) {
+            // 1. Update the active styling on the navigation links
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            element.classList.add('active');
 
+            // 2. Automatically update the Hero Header text to match the channel
+            const heroTitle = document.querySelector('.editorial-hero h1');
+            const heroText = document.querySelector('.editorial-hero p');
+            
+            if (category === 'all') {
+                heroTitle.innerText = "Culinary Entertainment & Lifestyle";
+                heroText.innerText = "Where silver-screen aesthetic meets premium real-world flavor profiles, curated daily.";
+            } else {
+                heroTitle.innerText = category.replace('-', ' ').toUpperCase();
+                heroText.innerText = `Premium insights, curated guides, and editorial features covering ${category.replace('-', ' ')}.`;
+            }
+
+            // 3. Instantaneously filter the content grid cards
+            document.querySelectorAll('.post-card').forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Handle direct link loading (e.g., if someone visits movierecipes.net/#recipes directly)
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash) {
+                const targetLink = document.querySelector(`a[href="#${hash}"]`);
+                if (targetLink) targetLink.click();
+            }
+        });
+    </script>
 </body>
 </html>
